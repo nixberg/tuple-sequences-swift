@@ -6,14 +6,14 @@ final class TupleSequencesTests: XCTestCase {
     private let array = Array(0..<840)
     
     func testCouples() {
-        XCTAssert(array.couples.elementsEqual(array.chunks(ofCount: 2), by: {
+        XCTAssert(array.couples().elementsEqual(array.chunks(ofCount: 2), by: {
             $0.0 == $1[offsetBy: 0] &&
             $0.1 == $1[offsetBy: 1]
         }))
     }
     
     func testTriples() {
-        XCTAssert(array.triples.elementsEqual(array.chunks(ofCount: 3), by: {
+        XCTAssert(array.triples().elementsEqual(array.chunks(ofCount: 3), by: {
             $0.0 == $1[offsetBy: 0] &&
             $0.1 == $1[offsetBy: 1] &&
             $0.2 == $1[offsetBy: 2]
@@ -21,7 +21,7 @@ final class TupleSequencesTests: XCTestCase {
     }
     
     func testQuadruples() {
-        XCTAssert(array.quadruples.elementsEqual(array.chunks(ofCount: 4), by: {
+        XCTAssert(array.quadruples().elementsEqual(array.chunks(ofCount: 4), by: {
             $0.0 == $1[offsetBy: 0] &&
             $0.1 == $1[offsetBy: 1] &&
             $0.2 == $1[offsetBy: 2] &&
@@ -30,7 +30,7 @@ final class TupleSequencesTests: XCTestCase {
     }
     
     func testQuintuples() {
-        XCTAssert(array.quintuples.elementsEqual(array.chunks(ofCount: 5), by: {
+        XCTAssert(array.quintuples().elementsEqual(array.chunks(ofCount: 5), by: {
             $0.0 == $1[offsetBy: 0] &&
             $0.1 == $1[offsetBy: 1] &&
             $0.2 == $1[offsetBy: 2] &&
@@ -40,7 +40,7 @@ final class TupleSequencesTests: XCTestCase {
     }
     
     func testSextuples() {
-        XCTAssert(array.sextuples.elementsEqual(array.chunks(ofCount: 6), by: {
+        XCTAssert(array.sextuples().elementsEqual(array.chunks(ofCount: 6), by: {
             $0.0 == $1[offsetBy: 0] &&
             $0.1 == $1[offsetBy: 1] &&
             $0.2 == $1[offsetBy: 2] &&
@@ -51,7 +51,7 @@ final class TupleSequencesTests: XCTestCase {
     }
     
     func testSeptuples() {
-        XCTAssert(array.septuples.elementsEqual(array.chunks(ofCount: 7), by: {
+        XCTAssert(array.septuples().elementsEqual(array.chunks(ofCount: 7), by: {
             $0.0 == $1[offsetBy: 0] &&
             $0.1 == $1[offsetBy: 1] &&
             $0.2 == $1[offsetBy: 2] &&
@@ -63,7 +63,7 @@ final class TupleSequencesTests: XCTestCase {
     }
     
     func testOctuples() {
-        XCTAssert(array.octuples.elementsEqual(array.chunks(ofCount: 8), by: {
+        XCTAssert(array.octuples().elementsEqual(array.chunks(ofCount: 8), by: {
             $0.0 == $1[offsetBy: 0] &&
             $0.1 == $1[offsetBy: 1] &&
             $0.2 == $1[offsetBy: 2] &&

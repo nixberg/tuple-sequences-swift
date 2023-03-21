@@ -1,5 +1,5 @@
 extension Sequence {
-    public var septuples: SeptuplesSequence<Self> {
+    public func septuples() -> SeptuplesSequence<Self> {
         .init(base: self)
     }
 }

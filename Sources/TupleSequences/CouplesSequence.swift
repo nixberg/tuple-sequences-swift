@@ -1,16 +1,16 @@
 extension Sequence {
     public func couples() -> CouplesSequence<Self> {
-        .init(base: self)
+        CouplesSequence(base: self)
     }
 }
 
 public struct CouplesSequence<Base: Sequence> {
-    let base: Base
+    fileprivate let base: Base
 }
 
 extension CouplesSequence: Sequence {
     public struct Iterator: IteratorProtocol {
-        var iterator: Base.Iterator
+        fileprivate var iterator: Base.Iterator
         
         public mutating func next() -> (
             Base.Element,
@@ -27,6 +27,6 @@ extension CouplesSequence: Sequence {
     }
     
     public func makeIterator() -> Iterator {
-        .init(iterator: base.makeIterator())
+        Iterator(iterator: base.makeIterator())
     }
 }

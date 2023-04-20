@@ -1,16 +1,16 @@
 extension Sequence {
     public func triples() -> TriplesSequence<Self> {
-        .init(base: self)
+        TriplesSequence(base: self)
     }
 }
 
 public struct TriplesSequence<Base: Sequence> {
-    let base: Base
+    fileprivate let base: Base
 }
 
 extension TriplesSequence: Sequence {
     public struct Iterator: IteratorProtocol {
-        var iterator: Base.Iterator
+        fileprivate var iterator: Base.Iterator
         
         public mutating func next() -> (
             Base.Element,
@@ -29,6 +29,6 @@ extension TriplesSequence: Sequence {
     }
     
     public func makeIterator() -> Iterator {
-        .init(iterator: base.makeIterator())
+        Iterator(iterator: base.makeIterator())
     }
 }

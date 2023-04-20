@@ -76,8 +76,8 @@ final class TupleSequencesTests: XCTestCase {
     }
 }
 
-private extension RandomAccessCollection {
-    subscript(offsetBy distance: Int) -> Element {
+extension RandomAccessCollection {
+    fileprivate subscript(offsetBy distance: Int) -> Element {
         self[self.index(startIndex, offsetBy: distance)]
     }
 }

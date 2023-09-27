@@ -30,6 +30,10 @@ extension QuadruplesSequence: Sequence {
         }
     }
     
+    public var underestimatedCount: Int {
+        base.underestimatedCount / 4
+    }
+    
     public func makeIterator() -> Iterator {
         Iterator(iterator: base.makeIterator())
     }

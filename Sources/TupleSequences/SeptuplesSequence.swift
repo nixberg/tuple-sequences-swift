@@ -36,6 +36,10 @@ extension SeptuplesSequence: Sequence {
         }
     }
     
+    public var underestimatedCount: Int {
+        base.underestimatedCount / 7
+    }
+    
     public func makeIterator() -> Iterator {
         Iterator(iterator: base.makeIterator())
     }

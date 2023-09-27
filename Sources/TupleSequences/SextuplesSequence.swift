@@ -34,6 +34,10 @@ extension SextuplesSequence: Sequence {
         }
     }
     
+    public var underestimatedCount: Int {
+        base.underestimatedCount / 6
+    }
+    
     public func makeIterator() -> Iterator {
         Iterator(iterator: base.makeIterator())
     }

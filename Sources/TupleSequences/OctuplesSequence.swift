@@ -38,6 +38,10 @@ extension OctuplesSequence: Sequence {
         }
     }
     
+    public var underestimatedCount: Int {
+        base.underestimatedCount / 8
+    }
+    
     public func makeIterator() -> Iterator {
         Iterator(iterator: base.makeIterator())
     }

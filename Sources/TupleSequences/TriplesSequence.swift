@@ -28,6 +28,10 @@ extension TriplesSequence: Sequence {
         }
     }
     
+    public var underestimatedCount: Int {
+        base.underestimatedCount / 3
+    }
+    
     public func makeIterator() -> Iterator {
         Iterator(iterator: base.makeIterator())
     }

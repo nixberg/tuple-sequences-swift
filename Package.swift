@@ -1,4 +1,4 @@
-// swift-tools-version: 5.7
+// swift-tools-version: 6.0
 
 import PackageDescription
 
@@ -10,7 +10,9 @@ let package = Package(
             targets: ["TupleSequences"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-algorithms", from: "1.0.0"),
+        .package(
+            url: "https://github.com/apple/swift-algorithms",
+            from: "1.0.0"),
     ],
     targets: [
         .target(

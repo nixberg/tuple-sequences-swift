@@ -1,50 +1,57 @@
 import Algorithms
+import Testing
 import TupleSequences
-import XCTest
 
-final class TupleSequencesTests: XCTestCase {
-    private let array = Array(0..<840)
-    
-    func testCouples() {
+struct TupleSequencesTests {
+    let array = Array(0..<840)
+
+    @Test
+    func couples() {
         let sequence = array.couples()
-        XCTAssertEqual(sequence.underestimatedCount, array.underestimatedCount / 2)
-        XCTAssert(sequence.elementsEqual(array.chunks(ofCount: 2), by: ==))
+        #expect(sequence.underestimatedCount == array.underestimatedCount / 2)
+        #expect(sequence.elementsEqual(array.chunks(ofCount: 2), by: ==))
     }
-    
-    func testTriples() {
+
+    @Test
+    func triples() {
         let sequence = array.triples()
-        XCTAssertEqual(sequence.underestimatedCount, array.underestimatedCount / 3)
-        XCTAssert(sequence.elementsEqual(array.chunks(ofCount: 3), by: ==))
+        #expect(sequence.underestimatedCount == array.underestimatedCount / 3)
+        #expect(sequence.elementsEqual(array.chunks(ofCount: 3), by: ==))
     }
-    
-    func testQuadruples() {
+
+    @Test
+    func quadruples() {
         let sequence = array.quadruples()
-        XCTAssertEqual(sequence.underestimatedCount, array.underestimatedCount / 4)
-        XCTAssert(sequence.elementsEqual(array.chunks(ofCount: 4), by: ==))
+        #expect(sequence.underestimatedCount == array.underestimatedCount / 4)
+        #expect(sequence.elementsEqual(array.chunks(ofCount: 4), by: ==))
     }
-    
-    func testQuintuples() {
+
+    @Test
+    func quintuples() {
         let sequence = array.quintuples()
-        XCTAssertEqual(sequence.underestimatedCount, array.underestimatedCount / 5)
-        XCTAssert(sequence.elementsEqual(array.chunks(ofCount: 5), by: ==))
+        #expect(sequence.underestimatedCount == array.underestimatedCount / 5)
+        #expect(sequence.elementsEqual(array.chunks(ofCount: 5), by: ==))
     }
-    
-    func testSextuples() {
+
+    @Test
+    func sextuples() {
         let sequence = array.sextuples()
-        XCTAssertEqual(sequence.underestimatedCount, array.underestimatedCount / 6)
-        XCTAssert(sequence.elementsEqual(array.chunks(ofCount: 6), by: ==))
+        #expect(sequence.underestimatedCount == array.underestimatedCount / 6)
+        #expect(sequence.elementsEqual(array.chunks(ofCount: 6), by: ==))
     }
-    
-    func testSeptuples() {
+
+    @Test
+    func septuples() {
         let sequence = array.septuples()
-        XCTAssertEqual(sequence.underestimatedCount, array.underestimatedCount / 7)
-        XCTAssert(sequence.elementsEqual(array.chunks(ofCount: 7), by: ==))
+        #expect(sequence.underestimatedCount == array.underestimatedCount / 7)
+        #expect(sequence.elementsEqual(array.chunks(ofCount: 7), by: ==))
     }
-    
-    func testOctuples() {
+
+    @Test
+    func octuples() {
         let sequence = array.octuples()
-        XCTAssertEqual(sequence.underestimatedCount, array.underestimatedCount / 8)
-        XCTAssert(sequence.elementsEqual(array.chunks(ofCount: 8), by: ==))
+        #expect(sequence.underestimatedCount == array.underestimatedCount / 8)
+        #expect(sequence.elementsEqual(array.chunks(ofCount: 8), by: ==))
     }
 }
 

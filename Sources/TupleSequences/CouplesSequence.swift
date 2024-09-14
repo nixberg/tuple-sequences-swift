@@ -11,7 +11,7 @@ public struct CouplesSequence<Base: Sequence> {
 extension CouplesSequence: Sequence {
     public struct Iterator: IteratorProtocol {
         fileprivate var iterator: Base.Iterator
-        
+
         public mutating func next() -> (
             Base.Element,
             Base.Element
@@ -19,17 +19,19 @@ extension CouplesSequence: Sequence {
             guard let a = iterator.next() else {
                 return nil
             }
-            guard let b = iterator.next() else {
+            guard
+                let b = iterator.next()
+            else {
                 fatalError("Not enough elements in base sequence")
             }
             return (a, b)
         }
     }
-    
+
     public var underestimatedCount: Int {
         base.underestimatedCount / 2
     }
-    
+
     public func makeIterator() -> Iterator {
         Iterator(iterator: base.makeIterator())
     }

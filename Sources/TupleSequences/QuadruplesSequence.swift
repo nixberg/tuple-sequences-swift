@@ -11,7 +11,7 @@ public struct QuadruplesSequence<Base: Sequence> {
 extension QuadruplesSequence: Sequence {
     public struct Iterator: IteratorProtocol {
         fileprivate var iterator: Base.Iterator
-        
+
         public mutating func next() -> (
             Base.Element,
             Base.Element,
@@ -21,19 +21,21 @@ extension QuadruplesSequence: Sequence {
             guard let a = iterator.next() else {
                 return nil
             }
-            guard let b = iterator.next(),
-                  let c = iterator.next(),
-                  let d = iterator.next() else {
+            guard
+                let b = iterator.next(),
+                let c = iterator.next(),
+                let d = iterator.next()
+            else {
                 fatalError("Not enough elements in base sequence")
             }
             return (a, b, c, d)
         }
     }
-    
+
     public var underestimatedCount: Int {
         base.underestimatedCount / 4
     }
-    
+
     public func makeIterator() -> Iterator {
         Iterator(iterator: base.makeIterator())
     }

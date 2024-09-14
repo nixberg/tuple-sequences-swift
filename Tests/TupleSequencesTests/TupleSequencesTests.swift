@@ -55,17 +55,16 @@ struct TupleSequencesTests {
     }
 }
 
-// TODO: Use variadic generics when possible.
 extension RandomAccessCollection where Element: Equatable {
-    fileprivate static func == <T>(lhs: T, rhs: Self) -> Bool {
-        assert(_isPOD(T.self))
-        assert(MemoryLayout<Element>.size == MemoryLayout<Element>.stride)
-        assert(MemoryLayout<T>.size == MemoryLayout<Element>.stride * rhs.count)
-        return withUnsafeBytes(of: lhs) {
-            UnsafeBufferPointer(
-                start: $0.baseAddress!.assumingMemoryBound(to: Element.self),
-                count: rhs.count
-            ).elementsEqual(rhs)
+    // TODO: Use same-element constraint when available.
+    fileprivate static func == <each T>(lhs: (repeat each T), rhs: Self) -> Bool {
+        var rhs = rhs.makeIterator()
+
+        for lhs in repeat each lhs {
+            guard (lhs as! Element) == rhs.next() else {
+                return false
+            }
         }
+        return rhs.next() == nil
     }
 }
